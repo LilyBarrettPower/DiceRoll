@@ -1,24 +1,26 @@
 function rollDice() {
     const dice = document.getElementById("dice");
-    const resultE = document.getElementById("result");
+    const resultElement = document.getElementById("result");
     const diceSidesSelect = document.getElementById("diceSides");
 
     dice.style.animation = "rollAnimation 1s ease-in-out";
 
     setTimeout (() => {
         const selectedDiceSides = parseInt(diceSidesSelect.value);
-        const number = Math.floor(Math.random() * selectedDiceSides) + 1;
+        const randomNumber = Math.floor(Math.random() * selectedDiceSides) + 1;
 
         dice.innerHTML = `<img src="dice.png" alt="Dice Image" id="rollButton">`;
-        resultE.textcontent = number;
+        resultElement.textContent = randomNumber;
+        resultElement.style.display = "inline";
+        resultElement.style.fontWeight = "bold";
 
         setTimeout(() => {
             dice.style.animation = "";
-        }, 100);
+        }, 50);
 
         setTimeout(() => {
-            resultE.style.display = "none";
-        }, 3000);
+            resultElement.style.display = "none";
+        }, 2000);
     }, 1000);
 }
 
